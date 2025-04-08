@@ -15,6 +15,9 @@ public class AdminService {
     public List<Admin> getAllAdmins() {
         return adminRepository.findAll();
     }
+    public void createAdmin(Admin admin) {
+        adminRepository.save(admin);
+    }
 
     public Admin getAdminById(Long id) {
         return adminRepository.findById(id).orElseThrow(() -> new RuntimeException("Admin with id: " + id + " not found"));

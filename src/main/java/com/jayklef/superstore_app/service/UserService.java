@@ -23,6 +23,10 @@ public class UserService {
         return userRepository.findById(id).orElseThrow(() -> new RuntimeException("User with id: " + id + " not found"));
     }
 
+    public User getUserByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
+
     public User updateAdmin(User user){
         User adminToUpdate = userRepository.findById(user.getId())
                 .orElseThrow(() -> new RuntimeException("User with id: " + user.getId() + " not found"));
